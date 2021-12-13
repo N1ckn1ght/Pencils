@@ -32,9 +32,7 @@ modified = []
 for i in range(CONST_AMOUNT):
     dataset.append(cv2.imread(CONST_PATH + "img (" + str(i + 1) +  ").jpg"))
     modified.append(cv2.imread(CONST_PATH + "img (" + str(i + 1) +  ").jpg", cv2.IMREAD_GRAYSCALE))
-for i in range(CONST_AMOUNT):
     modified[i] = cv2.GaussianBlur(modified[i], CONST_BLURRING, 0)
-for i in range(CONST_AMOUNT):
     (_, modified[i]) = cv2.threshold(modified[i], 127, 255, cv2.THRESH_BINARY)
 
 for i in range(CONST_AMOUNT):
