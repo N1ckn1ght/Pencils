@@ -6,9 +6,6 @@ CONST_BLURRING = (89, 89)
 CONST_AMOUNT = 12
 CONST_PATH = "./images/"
 
-def mid(a, b):
-    return ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
-
 def show(img, type=cv2.WINDOW_KEEPRATIO):
     cv2.namedWindow("Image", type)
     cv2.imshow("Image", img)
@@ -16,9 +13,8 @@ def show(img, type=cv2.WINDOW_KEEPRATIO):
     cv2.destroyAllWindows()
 
 def check(box):
-    mbox = [mid(box[0], box[1]), mid(box[2], box[3]), mid(box[0], box[3]), mid(box[1], box[2])]
-    w = distance.euclidean(mbox[0], mbox[1])
-    h = distance.euclidean(mbox[2], mbox[3])
+    w = distance.euclidean(box[0], box[1])
+    h = distance.euclidean(box[0], box[3])
     if (w * 10 < h):
         return True
     if (h * 10 < w):
